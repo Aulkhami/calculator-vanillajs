@@ -1,0 +1,98 @@
+body,
+button {
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+}
+
+h1 {
+  color: #fafafa;
+  margin: 0;
+
+  font-size: 12px;
+}
+
+.container {
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  width: 320px;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  background-color: #27272a;
+  border-radius: 20px;
+  border-style: outset;
+}
+
+.display {
+  height: 64px;
+  background-color: #f0fdf4;
+
+  border-radius: 5px;
+  border-style: inset;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 4px 8px;
+}
+
+#current-operand {
+  text-align: right;
+  font-size: 36px;
+}
+
+#last-operand {
+  text-align: left;
+  font-size: 16px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  justify-content: space-between;
+}
+
+.buttons button {
+  flex: auto;
+  width: 24%;
+  height: 64px;
+}
+
+.buttons button[value="0"] {
+  width: 49.2%;
+}
+
+.operand {
+  background-color: #a1a1aa;
+
+  font-size: 16px;
+}
+
+.operator {
+  background-color: #71717a;
+  color: #fafafa;
+
+  font-size: 28px;
+}
+
+.misc {
+  background-color: #3f3f46;
+  color: #fafafa;
+}
+
+#operate {
+  background-color: #dc2626;
+  color: #fafafa;
+
+  font-size: 28px;
+}

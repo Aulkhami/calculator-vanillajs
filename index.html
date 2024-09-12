@@ -4,34 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="calculator">
-      <div class="display">
-        <div id="last-operand"></div>
-        <div id="current-operand"></div>
-      </div>
+    <div class="container">
+      <div class="calculator">
+        <h1>Calculator++ V1.0</h1>
+        <div class="display">
+          <div id="last-operand"></div>
+          <div id="current-operand">0</div>
+        </div>
 
-      <div class="buttons">
-        <button id="clear" class="misc">AC</button>
-        <button id="change-sign" class="misc">+/-</button>
-        <button id="backspace" class="misc">⌫</button>
-        <button class="operator" value="divide">÷</button>
-        <button class="operator" value="multiply">×</button>
-        <button class="operator" value="subtract">-</button>
-        <button class="operator" value="add">+</button>
-        <button class="operand" value="7">7</button>
-        <button class="operand" value="8">8</button>
-        <button class="operand" value="9">9</button>
-        <button class="operand" value="4">4</button>
-        <button class="operand" value="5">5</button>
-        <button class="operand" value="6">6</button>
-        <button class="operand" value="3">3</button>
-        <button class="operand" value="2">2</button>
-        <button class="operand" value="1">1</button>
-        <button class="operand" value="0">0</button>
-        <button id="decimal" class="misc">.</button>
-        <button id="operate">=</button>
+        <div class="buttons">
+          <button id="clear" class="misc">AC</button>
+          <button id="change-sign" class="misc">+/-</button>
+          <button id="backspace" class="misc">⌫</button>
+          <button class="operator" value="divide">÷</button>
+
+          <button class="operand" value="7">7</button>
+          <button class="operand" value="8">8</button>
+          <button class="operand" value="9">9</button>
+          <button class="operator" value="multiply">×</button>
+
+          <button class="operand" value="4">4</button>
+          <button class="operand" value="5">5</button>
+          <button class="operand" value="6">6</button>
+          <button class="operator" value="subtract">-</button>
+
+          <button class="operand" value="3">3</button>
+          <button class="operand" value="2">2</button>
+          <button class="operand" value="1">1</button>
+          <button class="operator" value="add">+</button>
+
+          <button class="operand" value="0">0</button>
+          <button id="decimal" class="misc">.</button>
+          <button id="operate">=</button>
+        </div>
       </div>
     </div>
   </body>
