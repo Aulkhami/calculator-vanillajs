@@ -130,6 +130,10 @@ function setOperator(operator) {
 }
 
 function toggleSign() {
+  if (currentOperand.length === 0) {
+    return;
+  }
+
   if (currentOperand.charAt(0) !== "-") {
     currentOperand = "-" + currentOperand;
   } else {
