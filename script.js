@@ -107,6 +107,16 @@ function setOperator(operator) {
   updateDisplay();
 }
 
+function toggleSign() {
+  if (currentOperand.charAt(0) !== "-") {
+    currentOperand = "-" + currentOperand;
+  } else {
+    currentOperand = currentOperand.replace("-", "");
+  }
+
+  updateDisplay();
+}
+
 function operate() {
   if ((lastOperand.length === 0) | !currentOperand) {
     return;
@@ -140,5 +150,6 @@ operatorButtons.forEach((button) =>
   button.addEventListener("click", () => setOperator(button.value))
 );
 
+changeSignButton.addEventListener("click", toggleSign);
 operateButton.addEventListener("click", operate);
 clearButton.addEventListener("click", clear);
