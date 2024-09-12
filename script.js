@@ -162,6 +162,23 @@ function operate() {
   currentOperand = result.toString();
 }
 
+function backspace() {
+  if (currentOperand.length === 0) {
+    currentOperation = null;
+
+    currentOperand = lastOperand;
+    lastOperand = "";
+  } else {
+    currentOperand = currentOperand.substring(0, currentOperand.length - 1);
+  }
+
+  if (currentOperand.length === 1 && currentOperand === "-") {
+    currentOperand = "";
+  }
+
+  updateDisplay();
+}
+
 function clear() {
   lastOperand = "";
   currentOperand = "";
@@ -184,4 +201,5 @@ operatorButtons.forEach((button) =>
 changeSignButton.addEventListener("click", toggleSign);
 setDecimalButton.addEventListener("click", setDecimal);
 operateButton.addEventListener("click", operate);
+backspaceButton.addEventListener("click", backspace);
 clearButton.addEventListener("click", clear);
