@@ -86,7 +86,7 @@ function parseOperandToDisplay(operand) {
 }
 
 function updateDisplay(result) {
-  if (result) {
+  if (result || result === 0) {
     lastOperandDisplay.textContent =
       parseOperandToDisplay(lastOperand) +
       " " +
@@ -158,6 +158,9 @@ function setOperator(operator) {
 
   if (currentOperand.length > 0) {
     lastOperand = currentOperand;
+    currentOperand = "";
+  } else if (lastOperand.length === 0) {
+    lastOperand = "0";
     currentOperand = "";
   }
 
