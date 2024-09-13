@@ -251,6 +251,7 @@ const miscButtons = {
   "=": operateButton,
   Enter: operateButton,
   Backspace: backspaceButton,
+  Escape: clearButton,
 };
 
 document.addEventListener("keydown", (event) => {
