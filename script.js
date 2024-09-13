@@ -131,7 +131,10 @@ function inputOperand(operand) {
     currentOperand = "";
   }
 
-  if (currentOperand.length > MAX_DIGIT) {
+  if (
+    (currentOperand.length > MAX_DIGIT) |
+    (operand === "0" && currentOperand.length === 0)
+  ) {
     return;
   }
 
