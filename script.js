@@ -140,11 +140,14 @@ function inputOperand(operand) {
 }
 
 function setOperator(operator) {
-  if (!operations[operator] | !Number.parseFloat(currentOperand)) {
+  if (
+    !operations[operator] |
+    (currentOperand.length > 0 && !Number.parseFloat(currentOperand))
+  ) {
     return;
   }
 
-  if (lastOperand.length > 0 && currentOperation) {
+  if (lastOperand.length > 0 && currentOperand.length > 0 && currentOperation) {
     operate();
   }
 
