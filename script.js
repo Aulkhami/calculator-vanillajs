@@ -263,7 +263,7 @@ document.addEventListener("keydown", (event) => {
     );
   } else if (miscButtons[key]) {
     button = miscButtons[key];
-  } else if (key.match(/\d/g)) {
+  } else if (key.match(/^\d$/g)) {
     button = document.querySelector(`.operand[value="${key}"]`);
   } else {
     return;
