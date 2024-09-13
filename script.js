@@ -64,6 +64,10 @@ let currentOperand = "";
 let currentOperation;
 
 function parseOperandToDisplay(operand) {
+  if (operand.length > MAX_DIGIT) {
+    return Number.parseFloat(operand).toPrecision(MAX_DIGIT / 2);
+  }
+
   let textContent;
 
   // Check if currently doing decimal calculations
@@ -100,11 +104,9 @@ function updateDisplay(result) {
       return;
     }
 
-    let resultStr = result.toLocaleString("en-US");
-    if (resultStr.length > MAX_DIGIT) {
-      resultStr = result.toPrecision(MAX_DIGIT / 2);
-    }
-    currentOperandDisplay.textContent = resultStr;
+    currentOperandDisplay.textContent = parseOperandToDisplay(
+      result.toString()
+    );
 
     return;
   }
@@ -132,7 +134,7 @@ function inputOperand(operand) {
   }
 
   if (
-    (currentOperand.length > MAX_DIGIT) |
+    (currentOperand.length >= MAX_DIGIT) |
     (operand === "0" && currentOperand.length === 0)
   ) {
     return;
