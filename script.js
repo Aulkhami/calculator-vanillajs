@@ -201,6 +201,10 @@ function operate() {
 }
 
 function backspace() {
+  if (lastOperand.length > 0 && !currentOperation) {
+    return;
+  }
+
   if (currentOperand.length === 0) {
     currentOperation = null;
 
