@@ -49,6 +49,10 @@ const operationSymbols = {
   divide: "/",
 };
 
+const reversedOperationSymbols = Object.fromEntries(
+  Object.entries(operationSymbols).map(([key, value]) => [value, key])
+);
+
 // -- //
 
 // Constants
@@ -233,3 +237,29 @@ setDecimalButton.addEventListener("click", setDecimal);
 operateButton.addEventListener("click", operate);
 backspaceButton.addEventListener("click", backspace);
 clearButton.addEventListener("click", clear);
+
+// Keyboard support
+const miscButtons = {
+  "=": operateButton,
+  Enter: operateButton,
+  Backspace: backspaceButton,
+};
+
+document.addEventListener("keydown", (event) => {
+  const key = event.key;
+  let button;
+
+  if (reversedOperationSymbols[key]) {
+    button = document.querySelector(
+      `.operator[value="${reversedOperationSymbols[key]}"]`
+    );
+  } else if (miscButtons[key]) {
+    button = miscButtons[key];
+  } else if (Number.parseInt(key)) {
+    button = document.querySelector(`.operand[value="${key}"]`);
+  } else {
+    return;
+  }
+
+  button.click();
+});
