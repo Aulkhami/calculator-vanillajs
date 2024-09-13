@@ -47,6 +47,9 @@ const operationSymbols = {
 
 // -- //
 
+// Constants
+const MAX_DIGIT = 10;
+
 // States
 let lastOperand = "";
 let currentOperand = "";
@@ -84,7 +87,11 @@ function updateDisplay(result) {
       parseOperandToDisplay(currentOperand) +
       " =";
 
-    currentOperandDisplay.textContent = result.toLocaleString("en-US");
+    let resultStr = result.toLocaleString("en-US");
+    if (resultStr.length > MAX_DIGIT) {
+      resultStr = result.toPrecision(MAX_DIGIT / 2);
+    }
+    currentOperandDisplay.textContent = resultStr;
 
     return;
   }
@@ -106,7 +113,7 @@ function updateDisplay(result) {
 }
 
 function inputOperand(operand) {
-  if (currentOperand.length > 10) {
+  if (currentOperand.length > MAX_DIGIT) {
     return;
   }
 
