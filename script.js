@@ -126,6 +126,10 @@ function setOperator(operator) {
     return;
   }
 
+  if (lastOperand.length > 0) {
+    operate();
+  }
+
   currentOperation = operator;
 
   if (currentOperand.length > 0) {
