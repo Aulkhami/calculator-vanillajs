@@ -126,7 +126,10 @@ function updateDisplay(result) {
 }
 
 function inputOperand(operand) {
-  if (currentOperand.length > MAX_DIGIT) {
+  if (
+    (currentOperand.length > MAX_DIGIT) |
+    (lastOperand.length > 0 && !currentOperation)
+  ) {
     return;
   }
 
@@ -194,6 +197,7 @@ function operate() {
   updateDisplay(result);
 
   currentOperand = result.toString();
+  currentOperation = null;
 }
 
 function backspace() {
