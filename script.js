@@ -126,10 +126,12 @@ function updateDisplay(result) {
 }
 
 function inputOperand(operand) {
-  if (
-    (currentOperand.length > MAX_DIGIT) |
-    (lastOperand.length > 0 && !currentOperation)
-  ) {
+  if (lastOperand.length > 0 && !currentOperation) {
+    lastOperand = "";
+    currentOperand = "";
+  }
+
+  if (currentOperand.length > MAX_DIGIT) {
     return;
   }
 
@@ -138,7 +140,7 @@ function inputOperand(operand) {
 }
 
 function setOperator(operator) {
-  if (!operations[operator]) {
+  if (!operations[operator] | !Number.parseFloat(currentOperand)) {
     return;
   }
 
