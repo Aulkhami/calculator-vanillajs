@@ -142,7 +142,7 @@ function setOperator(operator) {
     return;
   }
 
-  if (lastOperand.length > 0) {
+  if (lastOperand.length > 0 && currentOperation) {
     operate();
   }
 
@@ -157,7 +157,10 @@ function setOperator(operator) {
 }
 
 function toggleSign() {
-  if (currentOperand.length === 0) {
+  if (
+    (currentOperand.length === 0) |
+    (lastOperand.length > 0 && !currentOperation)
+  ) {
     return;
   }
 
@@ -171,7 +174,9 @@ function toggleSign() {
 }
 
 function setDecimal() {
-  if (currentOperand.match(/\./g)) {
+  if (
+    currentOperand.match(/\./g) | (lastOperand.length > 0 && !currentOperation)
+  ) {
     return;
   }
 
