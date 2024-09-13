@@ -28,6 +28,10 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+  if (b === 0) {
+    return "Impossible.";
+  }
+
   return a / b;
 }
 
@@ -86,6 +90,11 @@ function updateDisplay(result) {
       " " +
       parseOperandToDisplay(currentOperand) +
       " =";
+
+    if (typeof result === "string") {
+      currentOperandDisplay.textContent = result;
+      return;
+    }
 
     let resultStr = result.toLocaleString("en-US");
     if (resultStr.length > MAX_DIGIT) {
