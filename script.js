@@ -164,13 +164,19 @@ function setDecimal() {
 }
 
 function operate() {
-  if ((lastOperand.length === 0) | !currentOperand) {
+  if ((lastOperand.length === 0) | !currentOperation) {
     return;
+  }
+
+  let operand = Number.parseFloat(currentOperand);
+  if (!operand) {
+    currentOperand = "0";
+    operand = 0;
   }
 
   const result = operations[currentOperation](
     Number.parseFloat(lastOperand),
-    Number.parseFloat(currentOperand) ?? 0
+    operand
   );
   updateDisplay(result);
 
