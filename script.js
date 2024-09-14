@@ -74,7 +74,7 @@ function parseOperandToDisplay(operand) {
   if (operand.match(/\./g)) {
     // Split the operand into two strings:
     const decimalPosition = operand.search(/\./g);
-    const beforeDecimal = operand.slice(0, decimalPosition);
+    const beforeDecimal = operand.slice(0, decimalPosition) || "0";
     const afterDecimal = operand.slice(decimalPosition, operand.length);
 
     // beforeDecimal will be turned to LocaleString
