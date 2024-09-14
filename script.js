@@ -134,7 +134,7 @@ function inputOperand(operand) {
   }
 
   if (
-    (currentOperand.length >= MAX_DIGIT) |
+    currentOperand.length >= MAX_DIGIT ||
     (operand === "0" && currentOperand.length === 0)
   ) {
     return;
@@ -146,7 +146,7 @@ function inputOperand(operand) {
 
 function setOperator(operator) {
   if (
-    !operations[operator] |
+    !operations[operator] ||
     (currentOperand.length > 0 && !Number.parseFloat(currentOperand))
   ) {
     return;
@@ -171,7 +171,7 @@ function setOperator(operator) {
 
 function toggleSign() {
   if (
-    (currentOperand.length === 0) |
+    currentOperand.length === 0 ||
     (lastOperand.length > 0 && !currentOperation)
   ) {
     return;
@@ -188,7 +188,8 @@ function toggleSign() {
 
 function setDecimal() {
   if (
-    currentOperand.match(/\./g) | (lastOperand.length > 0 && !currentOperation)
+    currentOperand.match(/\./g) !== null ||
+    (lastOperand.length > 0 && !currentOperation)
   ) {
     return;
   }
@@ -198,7 +199,7 @@ function setDecimal() {
 }
 
 function operate() {
-  if ((lastOperand.length === 0) | !currentOperation) {
+  if (lastOperand.length === 0 || !currentOperation) {
     return;
   }
 
